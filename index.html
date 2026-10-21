@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="hi-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aucwini AI · Coming Soon</title>
+<meta name="description" content="Aucwini AI: apni website ko 24x7 AI sales employee banao. Har visitor se baat, har lead capture, hot lead par team ko turant alert. Coming soon.">
+<meta property="og:title" content="Aucwini AI · Coming Soon">
+<meta property="og:description" content="Apni website ko 24x7 AI sales employee banao. Hindi, English aur Hinglish mein.">
+<meta name="theme-color" content="#060f26">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+/* Layout: one phone-first column (most visitors arrive from Instagram); the hero splits into copy + live chat card on wide screens. Single dark look to match the reel and posters. */
+:root {
+  --night: #060f26;
+  --navy: #0b1b3f;
+  --panel: #112552;
+  --line: #22396f;
+  --blue: #2563eb;
+  --sky: #8fb3ff;
+  --ink: #f2f5fc;
+  --soft: #b9c6e4;
+  --bubble: #eef2f9;
+  --bubble-ink: #0b1b3f;
+  --hot: #ff7a45;
+  --hot-ink: #2a0f00;
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--night);
+  background-image: radial-gradient(70% 50% at 85% 10%, rgba(37, 99, 235, 0.28), transparent 70%),
+                    radial-gradient(60% 40% at 0% 60%, rgba(37, 99, 235, 0.12), transparent 70%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; line-height: 1.12; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--sky); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-radius: 6px; }
+
+/* Top bar */
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 22px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; }
+.mark { width: 38px; height: 38px; border-radius: 10px; background: var(--blue); color: var(--ink); display: grid; place-items: center; font-weight: 800; }
+.brand em { font-style: normal; color: var(--sky); }
+.soon { font-family: var(--font-display); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--night); background: var(--ink); padding: 7px 12px; border-radius: 999px; white-space: nowrap; }
+
+/* Hero */
+.hero { display: grid; gap: 40px; padding-block: 28px 64px; align-items: center; }
+@media (min-width: 880px) { .hero { grid-template-columns: 1.1fr 0.9fr; gap: 56px; padding-block: 40px 88px; } }
+.hero .copy { display: grid; gap: 22px; min-width: 0; }
+.kicker { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sky); }
+.hero h1 { font-size: clamp(2.3rem, 7vw, 3.9rem); font-weight: 800; letter-spacing: -0.025em; }
+.hero h1 .hl { color: var(--sky); }
+.hero .sub { color: var(--soft); font-size: 1.12rem; max-width: 34ch; }
+.langs { display: flex; flex-wrap: wrap; gap: 8px; }
+.lang { border: 1px solid var(--line); background: rgba(17, 37, 82, 0.6); color: var(--ink); padding: 6px 12px; border-radius: 999px; font-size: 0.9rem; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; border-radius: 999px; font-family: var(--font-display); font-weight: 700; font-size: 0.98rem; text-decoration: none; border: 0; cursor: pointer; }
+.btn.primary { background: var(--blue); color: var(--ink); }
+.btn.primary:hover { background: #1d4fd0; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn.ghost:hover { border-color: var(--sky); }
+
+/* Chat card */
+.chat { position: relative; justify-self: center; width: 100%; max-width: 400px; }
+.window { background: #fbfcff; border-radius: 26px; overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 20, 0.55); }
+.window .top { background: var(--blue); color: var(--ink); display: flex; align-items: center; gap: 10px; padding: 14px 16px; }
+.window .top .av { width: 34px; height: 34px; border-radius: 9px; background: var(--ink); color: var(--blue); display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; }
+.window .top b { font-family: var(--font-display); font-size: 0.98rem; display: block; line-height: 1.2; }
+.window .top small { font-size: 0.78rem; opacity: 0.9; display: flex; align-items: center; gap: 6px; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: #5cf2a5; }
+.msgs { display: grid; gap: 10px; padding: 18px 16px 76px; }
+.m { max-width: 84%; padding: 10px 14px; border-radius: 18px; font-size: 0.94rem; line-height: 1.45; }
+.m.v { justify-self: end; background: var(--blue); color: var(--ink); border-bottom-right-radius: 6px; }
+.m.a { justify-self: start; background: var(--bubble); color: var(--bubble-ink); border-bottom-left-radius: 6px; }
+.typing { justify-self: start; background: var(--bubble); border-radius: 18px; padding: 12px 14px; display: flex; gap: 4px; }
+.typing i { width: 6px; height: 6px; border-radius: 50%; background: #8a97b5; animation: blink 1.2s infinite ease-in-out; }
+.typing i:nth-child(2) { animation-delay: 0.15s; }
+.typing i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes blink { 0%, 80%, 100% { opacity: 0.35; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-2px); } }
+.badge { position: absolute; left: -14px; bottom: -26px; background: var(--panel); border: 2px solid var(--line); border-radius: 20px; padding: 14px 18px; display: grid; gap: 2px; box-shadow: 0 18px 40px rgba(0, 0, 20, 0.5); }
+.badge .pill { justify-self: start; background: var(--hot); color: var(--hot-ink); font-family: var(--font-display); font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px; }
+.badge .score { font-family: var(--font-display); font-weight: 800; font-size: 2.4rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.badge .score span { font-size: 1rem; color: var(--soft); font-weight: 600; }
+.badge small { color: var(--soft); font-size: 0.8rem; }
+@media (max-width: 460px) { .badge { left: 8px; } }
+
+/* Sections */
+section { padding-block: 64px; border-top: 1px solid var(--line); }
+section .head { display: grid; gap: 10px; margin-bottom: 32px; max-width: 46ch; }
+section h2 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); letter-spacing: -0.015em; }
+section .lead { color: var(--soft); }
+
+.pains { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.pain { border-left: 3px solid var(--hot); padding: 4px 0 4px 18px; display: grid; gap: 4px; }
+.pain h3 { font-size: 1.08rem; }
+.pain p { color: var(--soft); font-size: 0.98rem; }
+
+ol.how { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); counter-reset: h; }
+ol.how li { counter-increment: h; background: rgba(17, 37, 82, 0.55); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: grid; gap: 8px; align-content: start; }
+ol.how li::before { content: counter(h); font-family: var(--font-display); font-weight: 800; font-size: 2.2rem; line-height: 1; color: var(--sky); }
+ol.how h3 { font-size: 1.12rem; }
+ol.how p { color: var(--soft); font-size: 0.98rem; }
+.snippet { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 0.78rem; background: var(--night); border: 1px solid var(--line); color: var(--sky); border-radius: 10px; padding: 8px 10px; overflow-x: auto; white-space: nowrap; }
+
+.feats { display: grid; gap: 0; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); border-top: 1px solid var(--line); }
+.feat { padding: 22px 4px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; }
+.feat svg { width: 28px; height: 28px; stroke: var(--sky); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.feat h3 { font-size: 1.04rem; margin-bottom: 4px; }
+.feat p { color: var(--soft); font-size: 0.95rem; }
+@media (min-width: 640px) { .feat { padding-right: 24px; } }
+
+/* Launch */
+.launch { background: var(--blue); border-radius: 28px; padding: 40px 28px; display: grid; gap: 18px; justify-items: start; }
+@media (min-width: 760px) { .launch { padding: 56px; } }
+.launch h2 { font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 800; }
+.launch p { color: var(--ink); opacity: 0.92; max-width: 48ch; }
+.contact { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; background: rgba(6, 15, 38, 0.35); border-radius: 16px; padding: 10px 10px 10px 16px; max-width: 100%; }
+.contact .addr { font-weight: 700; user-select: all; overflow-wrap: anywhere; min-width: 0; }
+.contact .btn { min-height: 42px; padding: 0 16px; font-size: 0.88rem; }
+.btn.light { background: var(--ink); color: var(--navy); }
+.copied { font-size: 0.85rem; min-height: 1.2em; }
+
+footer { padding-block: 40px 56px; color: var(--soft); font-size: 0.9rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+@media (prefers-reduced-motion: reduce) { .typing i { animation: none; opacity: 0.7; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="bar">
+    <div class="brand"><span class="mark" aria-hidden="true">A</span><span>Aucwini <em>AI</em></span></div>
+    <span class="soon">Coming soon</span>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="copy">
+        <span class="kicker">AI business employee</span>
+        <h1>Apni website ko <span class="hl">24×7 AI employee</span> banao</h1>
+        <p class="sub">Har visitor se baat. Har lead capture. Hot lead aate hi aapki team ko turant alert.</p>
+        <div class="langs" aria-label="Languages"><span class="lang">Hindi</span><span class="lang">English</span><span class="lang">Hinglish</span></div>
+        <div class="cta-row">
+          <a class="btn primary" href="#launch">Early access ke liye judiye</a>
+          <a class="btn ghost" href="#how">Kaise kaam karta hai</a>
+        </div>
+      </div>
+
+      <div class="chat" aria-label="Example chat on a business website">
+        <div class="window">
+          <div class="top">
+            <span class="av" aria-hidden="true">A</span>
+            <div><b>Aucwini AI</b><small><span class="dot" aria-hidden="true"></span>Online · replies instantly</small></div>
+          </div>
+          <div class="msgs">
+            <p class="m v">Mujhe apne business ke liye mobile app banwana hai</p>
+            <p class="m a">Zaroor! App kis cheez ke liye chahiye, aur aapka launch kab tak ka plan hai?</p>
+            <p class="m v">Food delivery app, 2 mahine mein. Budget around 5 lakh.</p>
+            <p class="m a">Perfect, ye hum kar sakte hain. Aapka naam aur WhatsApp number share karenge? Hamari team aaj hi call karegi.</p>
+            <div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="badge" aria-label="Example: hot lead, score 91 out of 100">
+          <span class="pill">HOT LEAD</span>
+          <span class="score">91 <span>/ 100</span></span>
+          <small>Team ko alert bhej diya</small>
+        </div>
+      </div>
+    </div>
+
+    <section aria-labelledby="pain-h">
+      <div class="head"><h2 id="pain-h">Visitors aate hain, par leads nahi banti?</h2></div>
+      <div class="pains">
+        <div class="pain"><h3>Raat 11 baje enquiry aayi</h3><p>Koi jawab dene wala nahi tha. Subah tak customer kisi aur se baat kar chuka tha.</p></div>
+        <div class="pain"><h3>Contact form bhar ke chale gaye</h3><p>Na zaroorat pata, na budget, na timeline. Team ko har lead ko phir se call karke poochna padta hai.</p></div>
+        <div class="pain"><h3>Pata nahi kaunsi lead serious hai</h3><p>Team ka time thande leads par jaata hai aur badi deal miss ho jaati hai.</p></div>
+      </div>
+    </section>
+
+    <section id="how" aria-labelledby="how-h">
+      <div class="head"><h2 id="how-h">Teen step mein shuru</h2><p class="lead">Coding ki zaroorat nahi.</p></div>
+      <ol class="how">
+        <li><h3>Apne business ke baare mein sikhaiye</h3><p>Services, pricing, FAQ aur company details. PDF, document ya text upload kariye. AI sirf isi jaankari se jawab deta hai.</p></li>
+        <li><h3>Website par ek line lagaiye</h3><p>Ek chhota sa code apni website mein paste kariye. Chat widget turant live.</p><div class="snippet">&lt;script src="…/widget.js" data-key="…"&gt;&lt;/script&gt;</div></li>
+        <li><h3>AI baat kare, aap deal close karein</h3><p>AI har visitor se baat karta hai, zaroorat samajhta hai aur lead ko score karta hai. Hot lead par aapko turant alert milta hai.</p></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="feat-h">
+      <div class="head"><h2 id="feat-h">Ek AI employee, jo kabhi chhutti nahi leta</h2></div>
+      <div class="feats">
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div><h3>24×7 jawab</h3><p>Din ho ya raat, har visitor ko seconds mein reply.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg>
+          <div><h3>Hindi, English, Hinglish</h3><p>Customer jis bhasha mein likhe, AI usi mein baat kare.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v4h4M8 12h8M8 16h6"/></svg>
+          <div><h3>Aapki jaankari se jawab</h3><p>AI aapke documents aur FAQ se jawab deta hai, apni taraf se kuch nahi banata.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 3 5 5.5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3 0-5 1-7.5z"/></svg>
+          <div><h3>Lead scoring</h3><p>Har lead ko 0 se 100 score: Hot, Warm ya Cold. Serious customer pehle.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+          <div><h3>Hot lead alert</h3><p>Badi lead aate hi team ko dashboard aur email par turant khabar.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 11l2 2 4-4"/></svg>
+          <div><h3>Human takeover</h3><p>Kisi bhi chat ko aapki team beech mein sambhal sakti hai. AI tab tak ruk jaata hai.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          <div><h3>Ek dashboard</h3><p>Saari chats, leads, contacts aur reports ek jagah. Poori team ke saath.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div><h3>Data safe</h3><p>Har business ka data poori tarah alag aur surakshit.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="launch" aria-labelledby="launch-h">
+      <div class="launch">
+        <span class="soon">Coming soon</span>
+        <h2 id="launch-h">Jald hi launch ho raha hai</h2>
+        <p>Launch par sabse pehle access chahiye? Humein email kariye. Hum aapko launch ki khabar sabse pehle denge aur aapki website ke liye demo bhi dikhayenge.</p>
+        <div class="contact">
+          <span class="addr" id="addr">aucwinitechnologiesllp@gmail.com</span>
+          <button class="btn light" type="button" id="copy-btn">Copy email</button>
+          <a class="btn light" href="mailto:aucwinitechnologiesllp@gmail.com?subject=Aucwini%20AI%20early%20access">Email bhejiye</a>
+        </div>
+        <span class="copied" id="copied" role="status"></span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Aucwini Technologies LLP · Indore, India</span>
+    <span>Jude rahiye, launch jald hi.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById("copy-btn");
+  var addr = document.getElementById("addr");
+  var out = document.getElementById("copied");
+  function selectIt() {
+    var r = document.createRange(); r.selectNodeContents(addr);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    out.textContent = "Email select ho gaya, ab copy kar lijiye.";
+  }
+  btn.addEventListener("click", function () {
+    try {
+      navigator.clipboard.writeText(addr.textContent).then(function () { out.textContent = "Email copy ho gaya."; }, selectIt);
+    } catch (e) { selectIt(); }
+  });
+})();
+</script>
+</body>
+</html>
